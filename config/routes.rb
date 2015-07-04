@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'books/show'
   get 'books/new'
   get 'books/edit'
+  get 'books/search'
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: :logout

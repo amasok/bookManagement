@@ -1,0 +1,7 @@
+.list-group
+  - @books.each do | book |
+    = link_to(book.isbn, class: 'list-group-item') do
+      h4.list-group-item-heading
+        p = book.title + " " + book.sub_title
+
+
