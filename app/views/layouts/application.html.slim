@@ -17,11 +17,8 @@ html lang="en"
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
-
-
-
   body
-    .navbar.navbar-default.navbar-static-top
+    header.navbar.navbar-default.navbar-static-top
         .container
           button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
             span.icon-bar
@@ -33,7 +30,11 @@ html lang="en"
               li= link_to "Link 1", "/path1"
               li= link_to "Link 2", "/path2"
               li= link_to "Link 3", "/path3"
-
+            ul.nav.navbar-nav.navbar-right
+              - if logged_in?
+                li= link_to "logout", logout_path
+              - else
+                li= link_to "google login", '/auth/google'
     .container
       .row
         .col-lg-9
